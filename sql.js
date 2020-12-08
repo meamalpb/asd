@@ -1,5 +1,5 @@
 const mysql = require("mysql");
-var mysqlConnection = mysql.createConnection({
+var sql = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"Anju7***",
@@ -7,4 +7,4 @@ var mysqlConnection = mysql.createConnection({
     multipleStatements:true
 });
 
-module.exports =mysqlConnection;
+module.exports =sql;

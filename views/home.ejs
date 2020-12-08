@@ -31,6 +31,26 @@
         
     </section>
 
+          
+                <table id="keywords" cellspacing="0" cellpadding="0">
+                    <thead>
+                      <tr>
+                        <th><span>Keywords</span></th>
+                        <th><span>Impressions</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% rows.forEach(function(book){ %>
+                      <tr>
+                        <td class="lalign"><%- book.id %></td>
+                        <td><%- book.warden_name %></td>
+                      </tr>
+                      <%});%>
+                    </tbody>
+                  </table>
+            <!-- <p></p> -->
+          
+       
 
 </body>
 </html>
