@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./home.css">
-    
+
     <title>Home</title>
 </head>
 <body>
@@ -25,32 +25,90 @@
             <a href="#">About</a>
         </div>
     </div>
-    <section>
-        <h1>Prison management</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit illum quisquam laboriosam ducimus? Neque ullam enim in doloremque placeat fuga?</p>
-        
-    </section>
-
-          
-                <table id="keywords" cellspacing="0" cellpadding="0">
-                    <thead>
-                      <tr>
-                        <th><span>Keywords</span></th>
-                        <th><span>Impressions</span></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <% rows.forEach(function(book){ %>
-                      <tr>
-                        <td class="lalign"><%- book.id %></td>
-                        <td><%- book.warden_name %></td>
-                      </tr>
-                      <%});%>
-                    </tbody>
-                  </table>
-            <!-- <p></p> -->
-          
-       
-
+    <h1>Warden</h1>
+    <table id="keywords" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th><span>Name</span></th>
+            <th><span>ID</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% rows.forEach(function(book){ %>
+          <tr>
+            <td class="lalign"><%- book.id %></td>
+            <td><%- book.warden_name %></td>
+          </tr>
+          <%});%>
+        </tbody>
+      </table>
+      <h1>Inmates</h1>
+      <div><table id="keywords" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th><span>Name</span></th>
+            <th><span>ID</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% rows1.forEach(function(book){ %>
+          <tr>
+            <td class="lalign"><%- book.id %></td>
+            <td><%- book.name %></td>
+          </tr>
+          <%});%>
+        </tbody>
+      </table></div>
+      <h1>cells</h1>
+      <table id="keywords" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th><span>Keywords</span></th>
+            <th><span>Impressions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% rows2.forEach(function(book){ %>
+          <tr>
+            <td class="lalign"><%- book.id %></td>
+            <td><%- book.jailor_id %></td>
+          </tr>
+          <%});%>
+        </tbody>
+      </table>
+      <h1>Medical officer</h1>
+      <table id="keywords" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th><span>Keywords</span></th>
+            <th><span>Impressions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% rows3.forEach(function(book){ %>
+          <tr>
+            <td class="lalign"><%- book.id %></td>
+            <td><%- book.name %></td>
+          </tr>
+          <%});%>
+        </tbody>
+      </table>
+<h1>Jailor</h1>
+      <table id="keywords" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th><span>Keywords</span></th>
+            <th><span>Impressions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% rows4.forEach(function(book){ %>
+          <tr>
+            <td class="lalign"><%- book.id %></td>
+            <td><%- book.jailor_name %></td>
+          </tr>
+          <%});%>
+        </tbody>
+      </table>
 </body>
 </html>

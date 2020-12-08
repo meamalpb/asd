@@ -41,9 +41,8 @@ app.get('/',(req,res)   =>  {
                         sql.query(smo,(err3,rows3,fields3)=>{
                             if(!err3){
                                 sql.query(sjailor,(err4,rows4,fields4)=>{
-                                    if(!err4){
-                                        console.log(rows4)
-                                        res.render('home',{rows:rows});
+                                    if(!err4){  
+                                        res.render('home',{rows:rows,rows1:rows1,rows2:rows2,rows3:rows3,rows3:rows3,rows4:rows4});
                                     }
                                 })
                             }
