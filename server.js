@@ -164,9 +164,8 @@ app.post('/jadd',(req,res)    =>{
 
 
 //change to display the tables
-app.post('/login',(req,res)   =>  {
-    console.log(req);
-    res.redirect('/warden');
+app.post('/login',(req,res)   =>  {;
+    res.redirect('/');
 });
 
 
@@ -218,10 +217,15 @@ app.post('/mo',(req,res)   =>  {
     res.redirect('/');
 });
 
+//front page
+app.get('/home',(req,res)   =>{
+    res.render('front')
+})
+
 
 //port
 app.listen(3000, function () {
-console.log("http://localhost:3000/")
+console.log("http://localhost:3000/home")
  })
 
 
