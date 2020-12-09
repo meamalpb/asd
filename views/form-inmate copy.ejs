@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="/form.css">
+
+    <title>inmate</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#" style="display:none;" >Login</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="overlay">
+        <a class="close">&times;</a>
+            <div class="overlay__content">
+                <a href="#" >Login</a>
+                <a href="#">Register</a>
+                <a href="#">About</a>
+            </div>
+    </div>
+    <form action="/iadd"    method="POST">
+    <div class="cent">
+        <div class="wrapper">
+            <div class="input-data">
+                <input type="text"  name="id" required value=<%= rows[0].id  %>>
+                    <div class="underline">
+                    </div>
+                <label>ID</label>
+            </div>
+        </div>
+    <div class="wrapper">
+            <div class="input-data">
+                <input type="text"  name=  "name"  required value=<%= rows[0].name  %>>
+                    <div class="underline">
+                    </div>
+                <label>Name</label>
+            </div>
+        </div>
+    <div class="wrapper">
+        <div class="input-data">
+          <input type="text" name ="cellid"  required value=<%= rows[0].cell_id  %>>
+                <div class="underline">
+                </div>
+            <label>Cell ID</label>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="input-data">
+          <input type="text" name="job" required value=<%= rows[0].job  %>>
+                <div class="underline">
+                </div>
+            <label>Job</label>
+        </div>
+        <button>Submit</button>
+    </div>
+</div>
+</form>
+</body>
+</html>

@@ -1,157 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/home.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
 
-    <title>Home</title>
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav__links">
-                <li><a href="/login">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="overlay">
-        <a >&times;</a>
-        <div class="overlay__content">
-            <a href="/login">Login</a>
-            <a href="#">Register</a>
-            <a href="#">About</a>
-        </div>
+  <header>
+    <nav>
+        <ul class="nav__links">
+            <li><a href="/login">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="overlay">
+    <a >&times;</a>
+    <div class="overlay__content">
+        <a href="/login">Login</a>
+        <a href="#">Register</a>
+        <a href="#">About</a>
     </div>
-    <h1>Warden</h1>
-    <table id="keywords" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th><span>ID</span></th>
-            <th><span>Name</span></th>
-            <th><span>SSN</span></th>
-            <th><span>Phone number</span></th>
-            <th><span>Update</span></th>
-            <th><span>Delete</span></th>
-          </tr>
-        </thead>
-        <tbody>
-            <% rows.forEach(function(book){ %>
-          <tr>
-            <td class="lalign"><%- book.id %></td>
-            <td><%- book.warden_name %></td>
-            <td><%- book.ssn %></td>
-            <td><%- book.phone_no %></td>
-            <td><a href="/warden/<%= book.id %> ">Update</a></td>
-            <td><a href="/wde/<%= book.id %> ">Delete</a></td>
-        </tr>
-          <%});%>
-        </tbody>
-      </table>
-      <h1>Inmates</h1>
-      <div><table id="keywords" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th><span>ID</span></th>
-            <th><span>Name</span></th>
-            <th><span>Cell ID</span></th>
-            <th><span>Job</span></th>
-            <th><span>Update</span></th>
-            <th><span>Delete</span></th>
+</div>
+<!-- warden -->
+<div class="po">
+<button class="accordion"><a href="/warden">warden</a></button>
+<div class="panel">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>ID</span></th>
+        <th><span>Name</span></th>
+        <th><span>SSN</span></th>
+        <th><span>Phone number</span></th>
+        <th><span>Update</span></th>
+        <th><span>Delete</span></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% rows.forEach(function(book){ %>
+      <tr>
+        <td class="lalign"><%- book.id %></td>
+        <td><%- book.warden_name %></td>
+        <td><%- book.ssn %></td>
+        <td><%- book.phone_no %></td>
+        <td><a href="/warden/<%= book.id %> ">Update</a></td>
+        <td><a href="/wde/<%= book.id %> ">Delete</a></td>
+    </tr>
+      <%});%>
+    </tbody>
+  </table>
+</div>
 
-          </tr>
-        </thead>
-        <tbody>
-            <% rows1.forEach(function(book){ %>
-          <tr>
-            <td class="lalign"><%- book.id %></td>
-            <td><%- book.name %></td>
-            <td><%- book.cell_id %></td>
-            <td><%- book.job %></td>
-            <td><a href="/inmates/<%= book.id %> ">Update</a></td>
-            <td><a href="/ide/<%= book.id %> ">Delete</a></td>
-          </tr>
-          <%});%>
-        </tbody>
-      </table></div>
-      <h1>cells</h1>
-      <table id="keywords" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th><span>Cell ID</span></th>
-            <th><span>Jailor</span></th>
-            <th><span>Update</span></th>
-            <th><span>Delete</span></th>
+<!-- inmates -->
+<button class="accordion"><a href="/inmate">Inmates</a></button>
+<div class="panel">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>ID</span></th>
+        <th><span>Name</span></th>
+        <th><span>Cell ID</span></th>
+        <th><span>Job</span></th>
+        <th><span>Update</span></th>
+        <th><span>Delete</span></th>
 
-          </tr>
-        </thead>
-        <tbody>
-            <% rows2.forEach(function(book){ %>
-          <tr>
-            <td class="lalign"><%- book.id %></td>
-            <td><%- book.jailor_id %></td>
-            <td><a href="/cells/<%= book.id %> ">Update</a></td>
-            <td><a href="/cde/<%= book.id %> ">Delete</a></td>
+      </tr>
+    </thead>
+    <tbody>
+        <% rows1.forEach(function(book){ %>
+      <tr>
+        <td class="lalign"><%- book.id %></td>
+        <td><%- book.name %></td>
+        <td><%- book.cell_id %></td>
+        <td><%- book.job %></td>
+        <td><a href="/inmates/<%= book.id %> ">Update</a></td>
+        <td><a href="/ide/<%= book.id %> ">Delete</a></td>
+      </tr>
+      <%});%>
+    </tbody>
+  </table>
+</div>
 
-          </tr>
-          <%});%>
-        </tbody>
-      </table>
-      <h1>Medical officer</h1>
-      <table id="keywords" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th><span>ID</span></th>
-            <th><span>Name</span></th>
-            <th><span>Warden ID</span></th>
-            <th><span>Phone No</span></th>
-            <th><span>Update</span></th>
-            <th><span>Delete</span></th>
+<!-- cells -->
+<button class="accordion"><a href="/cell">Cells</a></button>
+<div class="panel">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>Cell ID</span></th>
+        <th><span>Jailor</span></th>
+        <th><span>Update</span></th>
+        <th><span>Delete</span></th>
 
-          </tr>
-        </thead>
-        <tbody>
-            <% rows3.forEach(function(book){ %>
-          <tr>
-            <td class="lalign"><%- book.id %></td>
-            <td><%- book.name %></td>
-            <td><%- book.warden_id %></td>
-            <td><%- book.phone_no %></td>
-            <td><a href="/mo/<%= book.id %> ">Update</a></td>
-            <td><a href="/mde/<%= book.id %> ">Delete</a></td>
+      </tr>
+    </thead>
+    <tbody>
+        <% rows2.forEach(function(book){ %>
+      <tr>
+        <td class="lalign"><%- book.id %></td>
+        <td><%- book.jailor_id %></td>
+        <td><a href="/cells/<%= book.id %> ">Update</a></td>
+        <td><a href="/cde/<%= book.id %> ">Delete</a></td>
 
-          </tr>
-          <%});%>
-        </tbody>
-      </table>
-<h1>Jailor</h1>
-      <table id="keywords" cellspacing="0" cellpadding="0">
-        <thead>
-          <tr>
-            <th><span>ID</span></th>
-            <th><span>Name</span></th>
-            <th><span>Warden ID</span></th>
-            <th><span>Phone no.</span></th>
-            <th><span>Update</span></th>
-            <th><span>Delete</span></th>
+      </tr>
+      <%});%>
+    </tbody>
+  </table>
+</div>
 
-          </tr>
-        </thead>
-        <tbody>
-            <% rows4.forEach(function(book){ %>
-          <tr>
-            <td class="lalign"><%- book.id %></td>
-            <td><%- book.jailor_name %></td>
-            <td><%- book.warden_id %></td>
-            <td><%- book.phone_no %></td>
-            <td><a href="/jailor/<%= book.id %> ">Update</a></td>
-            <td><a href="/jde/<%= book.id %> ">Delete</a></td>
+<!-- jailor -->
+<button class="accordion"><a href="/jailor">Jailor</a></button>
+<div class="panel">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>ID</span></th>
+        <th><span>Name</span></th>
+        <th><span>Warden ID</span></th>
+        <th><span>Phone no.</span></th>
+        <th><span>Update</span></th>
+        <th><span>Delete</span></th>
 
-          </tr>
-          <%});%>
-        </tbody>
-      </table>
+      </tr>
+    </thead>
+    <tbody>
+        <% rows4.forEach(function(book){ %>
+      <tr>
+        <td class="lalign"><%- book.id %></td>
+        <td><%- book.jailor_name %></td>
+        <td><%- book.warden_id %></td>
+        <td><%- book.phone_no %></td>
+        <td><a href="/jailor/<%= book.id %> ">Update</a></td>
+        <td><a href="/jde/<%= book.id %> ">Delete</a></td>
+
+      </tr>
+      <%});%>
+    </tbody>
+  </table>
+</div>
+
+<!-- medical officer -->
+<button class="accordion"><a href="/mo">Medical officer</a></button>
+<div class="panel">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+        <th><span>ID</span></th>
+        <th><span>Name</span></th>
+        <th><span>Warden ID</span></th>
+        <th><span>Phone No</span></th>
+        <th><span>Update</span></th>
+        <th><span>Delete</span></th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <% rows3.forEach(function(book){ %>
+      <tr>
+        <td class="lalign"><%- book.id %></td>
+        <td><%- book.name %></td>
+        <td><%- book.warden_id %></td>
+        <td><%- book.phone_no %></td>
+        <td><a href="/mo/<%= book.id %> ">Update</a></td>
+        <td><a href="/mde/<%= book.id %> ">Delete</a></td>
+
+      </tr>
+      <%});%>
+    </tbody>
+  </table>
+</div>
+</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
 </body>
 </html>
