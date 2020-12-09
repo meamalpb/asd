@@ -34,7 +34,7 @@
             <th><span>SSN</span></th>
             <th><span>Phone number</span></th>
             <th><span>Update</span></th>
-
+            <th><span>Delete</span></th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +45,7 @@
             <td><%- book.ssn %></td>
             <td><%- book.phone_no %></td>
             <td><a href="/warden/<%= book.id %> ">Update</a></td>
+            <td><a href="/wde/<%= book.id %> ">Delete</a></td>
         </tr>
           <%});%>
         </tbody>
@@ -58,6 +59,7 @@
             <th><span>Cell ID</span></th>
             <th><span>Job</span></th>
             <th><span>Update</span></th>
+            <th><span>Delete</span></th>
 
           </tr>
         </thead>
@@ -69,6 +71,7 @@
             <td><%- book.cell_id %></td>
             <td><%- book.job %></td>
             <td><a href="/inmates/<%= book.id %> ">Update</a></td>
+            <td><a href="/ide/<%= book.id %> ">Delete</a></td>
           </tr>
           <%});%>
         </tbody>
@@ -80,6 +83,7 @@
             <th><span>Cell ID</span></th>
             <th><span>Jailor</span></th>
             <th><span>Update</span></th>
+            <th><span>Delete</span></th>
 
           </tr>
         </thead>
@@ -89,6 +93,8 @@
             <td class="lalign"><%- book.id %></td>
             <td><%- book.jailor_id %></td>
             <td><a href="/cells/<%= book.id %> ">Update</a></td>
+            <td><a href="/cde/<%= book.id %> ">Delete</a></td>
+
           </tr>
           <%});%>
         </tbody>
@@ -102,6 +108,8 @@
             <th><span>Warden ID</span></th>
             <th><span>Phone No</span></th>
             <th><span>Update</span></th>
+            <th><span>Delete</span></th>
+
           </tr>
         </thead>
         <tbody>
@@ -112,6 +120,8 @@
             <td><%- book.warden_id %></td>
             <td><%- book.phone_no %></td>
             <td><a href="/mo/<%= book.id %> ">Update</a></td>
+            <td><a href="/mde/<%= book.id %> ">Delete</a></td>
+
           </tr>
           <%});%>
         </tbody>
@@ -125,6 +135,7 @@
             <th><span>Warden ID</span></th>
             <th><span>Phone no.</span></th>
             <th><span>Update</span></th>
+            <th><span>Delete</span></th>
 
           </tr>
         </thead>
@@ -136,6 +147,8 @@
             <td><%- book.warden_id %></td>
             <td><%- book.phone_no %></td>
             <td><a href="/jailor/<%= book.id %> ">Update</a></td>
+            <td><a href="/jde/<%= book.id %> ">Delete</a></td>
+
           </tr>
           <%});%>
         </tbody>

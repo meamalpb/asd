@@ -15,7 +15,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.set('view engine', 'ejs'); 
 
-
+//port
+app.listen(3000, function () {
+    console.log("http://localhost:3000/home")
+     })
+    
 
 //warden routes
 
@@ -223,29 +227,67 @@ app.get('/home',(req,res)   =>{
 })
 
 
-//port
-app.listen(3000, function () {
-console.log("http://localhost:3000/home")
- })
+//delete warden entry
+app.get('/wde/:id',(req,res)   =>  { 
+    sql.query("delete from warden where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.redirect('/');
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+//delete inmates entry
+app.get('/ide/:id',(req,res)   =>  { 
+    sql.query("delete from inmates where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.redirect('/');
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.get('/cde/:id',(req,res)   =>  { 
+    sql.query("delete from cells where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.redirect('/');
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.get('/mde/:id',(req,res)   =>  { 
+    sql.query("delete from medical_officer where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.redirect('/');
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.get('/jde/:id',(req,res)   =>  { 
+    sql.query("delete from jailor where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.redirect('/');
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
 
 
 
-
-
-
-
-
-
-
-
-
-
-//testing connection
-// sql.connect((err) => {
-//     if(!err){
-//         console.log("connected");
-//     }
-//     else{
-//         console.log(err);
-//     }
-// })
