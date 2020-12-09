@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="/home.css">
 
     <title>Home</title>
 </head>
@@ -29,8 +29,12 @@
     <table id="keywords" cellspacing="0" cellpadding="0">
         <thead>
           <tr>
-            <th><span>Name</span></th>
             <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>SSN</span></th>
+            <th><span>Phone number</span></th>
+            <th><span>Update</span></th>
+
           </tr>
         </thead>
         <tbody>
@@ -38,7 +42,10 @@
           <tr>
             <td class="lalign"><%- book.id %></td>
             <td><%- book.warden_name %></td>
-          </tr>
+            <td><%- book.ssn %></td>
+            <td><%- book.phone_no %></td>
+            <td><a href="/warden/<%= book.id %> ">Update</a></td>
+        </tr>
           <%});%>
         </tbody>
       </table>
@@ -46,8 +53,12 @@
       <div><table id="keywords" cellspacing="0" cellpadding="0">
         <thead>
           <tr>
-            <th><span>Name</span></th>
             <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Cell ID</span></th>
+            <th><span>Job</span></th>
+            <th><span>Update</span></th>
+
           </tr>
         </thead>
         <tbody>
@@ -55,6 +66,9 @@
           <tr>
             <td class="lalign"><%- book.id %></td>
             <td><%- book.name %></td>
+            <td><%- book.cell_id %></td>
+            <td><%- book.job %></td>
+            <td><a href="/inmates/<%= book.id %> ">Update</a></td>
           </tr>
           <%});%>
         </tbody>
@@ -63,8 +77,10 @@
       <table id="keywords" cellspacing="0" cellpadding="0">
         <thead>
           <tr>
-            <th><span>Keywords</span></th>
-            <th><span>Impressions</span></th>
+            <th><span>Cell ID</span></th>
+            <th><span>Jailor</span></th>
+            <th><span>Update</span></th>
+
           </tr>
         </thead>
         <tbody>
@@ -72,6 +88,7 @@
           <tr>
             <td class="lalign"><%- book.id %></td>
             <td><%- book.jailor_id %></td>
+            <td><a href="/cells/<%= book.id %> ">Update</a></td>
           </tr>
           <%});%>
         </tbody>
@@ -80,8 +97,11 @@
       <table id="keywords" cellspacing="0" cellpadding="0">
         <thead>
           <tr>
-            <th><span>Keywords</span></th>
-            <th><span>Impressions</span></th>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Warden ID</span></th>
+            <th><span>Phone No</span></th>
+            <th><span>Update</span></th>
           </tr>
         </thead>
         <tbody>
@@ -89,6 +109,9 @@
           <tr>
             <td class="lalign"><%- book.id %></td>
             <td><%- book.name %></td>
+            <td><%- book.warden_id %></td>
+            <td><%- book.phone_no %></td>
+            <td><a href="/mo/<%= book.id %> ">Update</a></td>
           </tr>
           <%});%>
         </tbody>
@@ -97,8 +120,12 @@
       <table id="keywords" cellspacing="0" cellpadding="0">
         <thead>
           <tr>
-            <th><span>Keywords</span></th>
-            <th><span>Impressions</span></th>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Warden ID</span></th>
+            <th><span>Phone no.</span></th>
+            <th><span>Update</span></th>
+
           </tr>
         </thead>
         <tbody>
@@ -106,6 +133,9 @@
           <tr>
             <td class="lalign"><%- book.id %></td>
             <td><%- book.jailor_name %></td>
+            <td><%- book.warden_id %></td>
+            <td><%- book.phone_no %></td>
+            <td><a href="/jailor/<%= book.id %> ">Update</a></td>
           </tr>
           <%});%>
         </tbody>

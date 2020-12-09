@@ -65,9 +65,107 @@ app.get('/',(req,res)   =>  {
     res.render('login');
 });
 
+//update warden
+app.get('/warden/:id',(req,res)   =>  { 
+    sql.query("select * from warden where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.render('form-warden copy',{rows:rows});
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.post('/wadd',(req,res)    =>{
+    console.log(req.body.id);
+    sql.query("update warden set warden_name=? ,ssn=?,phone_no=? where id=?",[req.body.name,req.body.ssn,req.body.no,req.body.id],(err)=>{})
+    res.redirect('/')
+})
+
+//update inmates
+app.get('/inmates/:id',(req,res)   =>  { 
+    sql.query("select * from inmates where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.render('form-inmate copy',{rows:rows});
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.post('/iadd',(req,res)    =>{
+    console.log(req.body);
+    sql.query("update inmates set name=? ,cell_id=?,job=? where id=?",[req.body.name,req.body.cellid,req.body.job,req.body.id],(err)=>{})
+    res.redirect('/')
+})
+
+//update cells
+app.get('/cells/:id',(req,res)   =>  { 
+    sql.query("select * from cells where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.render('form-cell copy',{rows:rows});
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.post('/cadd',(req,res)    =>{
+    console.log(req.body);
+    sql.query("update cells set jailor_id=? where id=?",[req.body.jid,req.body.cellid],(err)=>{})
+    res.redirect('/')
+})
+
+//update medical officer
+app.get('/mo/:id',(req,res)   =>  { 
+    sql.query("select * from medical_officer where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.render('form-mo copy',{rows:rows});
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.post('/moadd',(req,res)    =>{
+    console.log(req.body);
+    sql.query("update medical_officer set name=? ,phone_no=?,warden_id=? where id=?",[req.body.name,req.body.no,req.body.wid,req.body.id],(err)=>{})
+    res.redirect('/')
+})
+
+
+//update warden
+app.get('/jailor/:id',(req,res)   =>  { 
+    sql.query("select * from jailor where id =?",req.params.id,(err,rows,fields) =>{
+        if(!err){
+            res.render('form-jailor copy',{rows:rows});
+
+        }
+        else{
+            console.log(err)
+        }
+    })
+});
+
+app.post('/jadd',(req,res)    =>{
+    console.log(req.body);
+    sql.query("update jailor set jailor_name=? ,phone_no=?,warden_id=? where id=?",[req.body.name,req.body.no,req.body.wid,req.body.id],(err)=>{})
+    res.redirect('/')
+})
+
+
+
 //change to display the tables
 app.post('/login',(req,res)   =>  {
-    console.log(req.body);
+    console.log(req);
     res.redirect('/warden');
 });
 
